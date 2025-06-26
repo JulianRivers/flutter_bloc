@@ -1,19 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:blocs_app/config/config.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:blocs_app/presentation/blocs/blocs.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const BlocProviders());
+}
+
+class BlocProviders extends StatelessWidget {
+  const BlocProviders({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+        providers: [BlocProvider(create: (context) => UsernameCubit())],
+        child: MyApp());
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp.router(
       title: 'Flutter BLoC',
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter,
-      theme: AppTheme( isDarkmode: false ).getTheme(),
+      theme: AppTheme(isDarkmode: false).getTheme(),
     );
   }
 }
