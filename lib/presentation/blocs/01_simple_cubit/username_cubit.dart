@@ -6,7 +6,6 @@ class UsernameCubit extends Cubit<String> {
   UsernameCubit(): super('no-username');
 
   void setUsername(String username){
-    
     emit(username);
   }
 }

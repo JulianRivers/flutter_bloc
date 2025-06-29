@@ -13,7 +13,7 @@ class BlocProviders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [BlocProvider(create: (context) => UsernameCubit())],
+        providers: [BlocProvider(create: (context) => UsernameCubit(), lazy: false,)],
         child: MyApp());
   }
 }
