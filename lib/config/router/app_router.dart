@@ -37,7 +37,6 @@ class RouterSimpleCubit extends Cubit<GoRouter> {
   RouterSimpleCubit() : super(_publicRoutes);
 
   void goBack() {
-    print("goBack se ativó");
     state.pop();
   }
 
